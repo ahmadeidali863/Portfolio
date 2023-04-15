@@ -1,0 +1,377 @@
+
+
+
+.active
+   {
+    font-weight: 600 !important;
+    transition: 0.6s;
+    font-size: 18px;
+  }
+
+a:hover,
+a:focus {
+  text-decoration: none;
+}
+.logo{
+  text-align: center;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 30px;
+  @media (max-width: 575px) {
+    font-size: 100%;
+
+  }
+}
+  .scrolled {
+    
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px;
+      background-color: rgb(255, 255, 255);
+    .welcomeSection{
+height: 50vh;
+    }
+  }
+  .welcomeSection{
+    height: 50vh;
+  }
+  nav {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    height: 90px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 4;
+  }
+  
+  ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  li {
+    list-style: none;
+    margin: 0 10px;
+  }
+  
+  a {
+    color: #000;
+    text-decoration: none;
+    font-size: 16px;
+  //  font-weight: bold;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  a:hover {
+    transform: scale(1.1);
+  }
+  
+  /* Add this CSS to animate the scroll */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  //////////////////////
+  
+//theme
+//theme Black
+.themeBlack {
+ 
+}
+//theme light
+.themeLight {
+  --italic-font: "EB Garamond", serif;
+}
+//end theme
+
+.header{
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  align-items: center;
+  top: 0px !important;
+  padding: 0 5%;
+  width: 100%;
+  white-space: nowrap;
+  flex-shrink: 0;
+  position: fixed;
+  left: 0;
+  z-index: 6;
+
+  @media (max-width: 575px) {
+    padding: 0 2%;
+    grid-template-columns: 2fr 1fr;
+    top: 0 !important;
+    height: 70px;
+
+  }
+
+
+  &-menu {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+
+    @media screen and (max-width: 740px) {
+      display: none;
+    }
+
+    a {
+      margin-right: 30px;
+    }
+  }
+
+  .menu-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    svg {
+      width: 27px;
+      color: var(--body-i-color);
+
+      @media (min-width: 700px) {
+        display: none;
+      }
+    }
+
+    @media (max-width: 600px) {
+      margin-right: 7px;
+      top: 0px;
+    }
+  }
+
+  &-icons {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+
+    img {
+      display: block;
+      height: 32px;
+      width: 34px;
+    }
+
+    i {
+      color: var(--body-i-color);
+    }
+  }
+}
+//---------------------------language
+.language {
+  font-size: 15px;
+  padding: 0;
+  color: var(--body-color);
+  max-width: 160px;
+  border: 1px solid var(--body-i-color);
+  background-color: #E0D9FF00 !important;
+  border-radius: 3px;
+  padding: 3px;
+  min-height: 34px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.languageMobileStyle {
+  font-size: 15px;
+  padding: 0;
+  color: var(--body-background);
+  max-width: 160px;
+  border: 1px solid var(--body-background);
+  background-color: #E0D9FF00 !important;
+  border-radius: 3px;
+  padding: 3px;
+  min-height: 34px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.language option {
+  color: #000;
+}
+
+.languageMobileStyle option {
+  color: #000;
+}
+
+.language-mobile {
+  font-size: 18px;
+  padding: 0;
+  color: #000;
+  max-width: 160px;
+  background-color: #E0D9FF !important;
+  border: 0;
+  cursor: pointer;
+  box-shadow: none;
+}
+
+.language-mobile:focus {
+  box-shadow: none;
+  border: 0;
+}
+
+
+//---------------------------end language
+//----------------------------------------------------------------menu mobile
+.menuMobile {
+  position: fixed;
+  display: block;
+  width: 100%;
+  z-index: 1;
+  background: var(--body-i-color);
+  margin: 0;
+  top: 0;
+  min-height: 100vh;
+  padding: 0;
+  opacity: 1;
+  left: -100%;
+  transition: 1s;
+}
+
+hr {
+  color: var(--body-background);
+}
+
+.openMenuMobile {
+  position: fixed;
+  display: block;
+  width: 100%;
+  z-index: 1;
+  background:#2b5566;
+ // backdrop-filter: blur(17px);
+  opacity: 1;
+  margin: 0;
+  top: 0;
+  min-height: 100vh;
+  padding: 0;
+  left: 0%;
+  transition: 1s;
+}
+
+.closeMenuMobile {
+  position: fixed;
+  display: block;
+  opacity: 1;
+  width: 100%;
+  z-index: 1;
+  backdrop-filter: blur(17px);
+  background: var(--menu-background-color);
+  margin: 0;
+  top: 0;
+  min-height: 100vh;
+  padding: 0;
+  left: -100%;
+  transition: 1s;
+}
+
+.middle {
+  position: relative;
+  display:grid;
+  text-align: center;
+ // min-height: 40px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-top: 4vh;
+  font-size: 18px;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+
+  .languageMobileStyle {
+    background: #fff !important;
+    border: 1px solid #fff !important;
+  }
+}
+
+.middle li {
+  margin: 0;
+  padding: 15px 0;
+  outline: 0 none;
+  position: relative;
+  color: #fff;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transform: translateZ(1px);
+  -moz-transform: translateZ(1px);
+  -ms-transform: translateZ(1px);
+  -o-transform: translateZ(1px);
+  transform: translateZ(1px);
+  z-index: 1;
+}
+
+.middle li a {
+  color: #fff !important;
+}
+
+.middle li:hover {
+  -webkit-box-shadow: inset 0 0 80px 0 rgba(255, 255, 255, 0.3);
+  -moz-box-shadow: inset 0 0 80px 0 rgba(255, 255, 255, 0.3);
+  box-shadow: inset 0 0 80px 0 rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+
+.logup {
+  width: 100%;
+  margin: 1%;
+}
+
+.closeMobileMenu {
+  color: var(--body-background);
+  display: flex;
+  align-items: center;
+  height: 50px;
+  top: 0;
+  padding: 0 5%;
+  width: 100%;
+  white-space: nowrap;
+  flex-shrink: 0;
+  font-weight: 400;
+  font-size: 15px;
+  left: 0;
+  z-index: 6;
+
+  .logo {
+    width: 100px !important;
+  }
+
+  i {
+    color: #fff;
+    font-size: 30px;
+    position: absolute;
+    right: 18px;
+    top: 10px;
+  }
+}
+
+@media(max-width:440px) {
+  .mobile {
+    display: none;
+  }
+}
+
+.menu {
+  width: 100%;
+  height: 62px;
+}
+//animation
+@keyframes ArrowRotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}

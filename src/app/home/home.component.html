@@ -1,0 +1,56 @@
+
+<section class="galleryLibraries">
+            <a class="imageLibrarie" *ngIf="images.length;else loadingImagePlaceholder">
+            <div class="imageContainer" *ngFor="let item of images">
+              
+<!-- <p-image src="{{item}}" alt="Image" class="p-image" [preview]="true"></p-image> -->
+                <img 
+                loading="lazy"
+                src="{{item}}"
+                (click)="openImage(item,$event)"
+                alt="Image description">
+            </div>
+        </a>
+            <ng-template #loadingImagePlaceholder >
+                <a class="imageLibrarie" *ngIf="!images.length">
+                <div class="imageContainer" style="height: 400px;background-color:black ;width: 100%;">
+                
+                </div>
+                <div class="imageContainer" style="height: 400px;background-color:rgb(141, 79, 79) ;width: 100%;">
+                
+                </div>
+                <div class="imageContainer" style="height: 400px;background-color:rgb(35, 116, 112) ;width: 100%;">
+                
+                </div>
+                <div class="imageContainer" style="height: 400px;background-color:rgb(145, 25, 125) ;width: 100%;">
+                
+                </div>
+                </a>
+              </ng-template>
+              <ng-container *ngIf="this.selectImage" >
+                <div [ngClass]="{'imageSelected': this.selectImage}">
+                  <div class="imageSelectedOptions">
+                    <img 
+                    class="exitImage"
+                    (click)="exitImage()"
+                    src="../assets/images/no.png"
+                  >
+                    <img 
+                    class="exitImage"
+                    style="right: 50px;"
+                    (click)="rotateAndScaleImage(90,1.5)"
+                    src="../assets/images/no.png"
+                  >
+                </div>
+                  <div class="imageSelectedContaner">
+                        <img 
+                        id="my-image"
+                        loading="lazy"
+                        src="{{this.selectedImage}}"
+                        alt="Image description">
+                    </div>
+                </div>
+                <div [ngClass]="{'imageSelectedExit': this.selectImage}"  (click)="exitImage()"></div>
+              </ng-container>
+              
+</section>
