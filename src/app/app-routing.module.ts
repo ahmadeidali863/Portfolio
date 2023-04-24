@@ -8,8 +8,16 @@ const routes: Routes = [
     loadComponent: () => import('../app/home/home.component').then(m => m.HomeComponent)
   },
   {
+    path: 'gallery',
+    loadComponent: () => import('../app/gallery/gallery.component').then(m => m.GalleryComponent)
+  },
+  {
     path: 'aboutme',
     loadComponent: () => import('../app/home/home.component').then(m => m.HomeComponent)
+  },
+  {
+    path: 'admin',
+    loadComponent: () => import('../app/admin/admin.component').then(m => m.AdminComponent)
   },
   {
     path: 'contact',

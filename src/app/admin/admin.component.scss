@@ -1,0 +1,333 @@
+
+.digitalInput {
+    input[type="number"]::-webkit-inner-spin-button {
+      display: none;
+    }
+  
+    .digitalInputuploadBox {
+      height: 40px;
+      transition: 1s;
+      border: 1px solid rgba(255, 255, 255, 0.3137254902);
+      color: rgba(255, 255, 255, 0.3137254902);
+      background: #18191b;
+      font-size: 13px;
+      outline: 0;
+      text-align: left;
+      position: relative;
+      display: block;
+      width: 96%;
+      left: auto;
+      right: auto;
+      box-shadow: none;
+      font-size: 16px;
+      border-radius: 4px;
+      margin: auto;
+      cursor: pointer;
+      font-size: 80%;
+      font-weight: 500;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  
+      img {
+        transition: 1s;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: block;
+        margin: 0;
+        padding: 0;
+        border-radius: 4px;
+      }
+    }
+  
+    input::placeholder {
+      color: rgba(255, 255, 255, 0.3137254902);
+    }
+  
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2px;
+    margin: 24px auto;
+    // border-top: 1px solid rgba(255, 255, 255, 0.4392156863);
+    //  border-bottom: 1px solid rgba(255, 255, 255, 0.4392156863);
+    //padding: 15px 0;
+    width: 400px;
+  
+    .messInput {
+      display: grid;
+      grid-template-columns: 75px 1fr;
+      gap: 2px;
+      margin: 8px auto;
+      width: 100%;
+      border-top: 1px solid rgba(255, 255, 255, 0.4392156863);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.4392156863);
+      padding: 27px 0;
+  
+      .input {
+        overflow: hidden;
+  
+        .fileDigitalProducts {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+      }
+  
+      .digitalLabel {
+        color: #fff;
+        font-size: 80%;
+        font-weight: 500;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-height: 40px;
+      }
+  
+      .digitalbutton {
+        display: flex;
+        justify-content: flex-end;
+        position: relative;
+        width: 98%;
+  
+  
+        .digitalbuttonadd {
+          border: 1px solid rgba(255, 255, 255, 0.3137254902);
+          background-color: #18191b;
+          color: #fff;
+          width: 100px;
+          height: 35px;
+          display: flex;
+          position: relative;
+          top: 8px;
+          right: 0;
+          border-radius: 4px;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+    }
+  
+    .messInput div i {
+      color: #fff;
+      position: relative;
+      display: grid;
+      font-size: 125%;
+      justify-content: center;
+      align-items: center;
+      border-radius: 4px;
+      height: 100%;
+      max-height: 40px;
+    }
+  
+    .messInput div .digitalInputBox {
+      font-size: 12px;
+      font-weight: 500;
+      height: 40px;
+      padding: 10px;
+    }
+  }
+  /////////////////////////\
+form {
+    --red: hsl(18 100% 50%);
+    --green: hsl(130 52% 46%);
+    --yellow: hsl(44 83% 53%);
+    --blue: hsl(215 100% 53%);
+    --grey: hsl(0 0% 45%);
+    --text: var(--gray-5);
+    --transition: 0.2s;
+    --valid: var(--green);
+    --invalid: var(--red);
+    --focus: var(--yellow);
+    --blur: var(--gray-0);
+    --disabled: var(--grey);
+  
+    .uploadFile {
+      grid-row: 1;
+      //border: 1px solid var(--color) ;
+      transition: border-color var(--transition);
+    }
+  
+    input:focus {
+      //grid-row: 1;
+      border: 1px solid var(--color) !important;
+      transition: border-color var(--transition);
+    }
+  
+    select:focus {
+      grid-row: 1;
+      border: 1px solid var(--color) !important;
+      transition: border-color var(--transition);
+    }
+  
+    textarea:focus {
+      grid-row: 1;
+      border: 1px solid var(--color) !important;
+      transition: border-color var(--transition);
+    }
+  
+    input:focus-visible {
+      outline-color: var(--color);
+    }
+  
+    input::placeholder {
+      color: rgba(255, 255, 255, 0.3137254902);
+    }
+  
+   
+  
+  
+    input:placeholder-shown {
+      color: blue;
+    }
+  
+    .input:has(:invalid) {
+      --color: var(--invalid);
+    }
+  
+    .input:has(:focus) {
+      --color: var(--focus);
+    }
+  
+    .input:has(:valid) {
+      --color: var(--valid);
+    }
+  
+    @media (prefers-reduced-motion: no-preference) {
+      .input:has(:valid) label span {
+        display: inline-block;
+        animation: jump 0.25s calc(var(--char-index) * 0.05s);
+      }
+  
+      @keyframes jump {
+        50% {
+          transform: translateY(-50%);
+        }
+      }
+  
+      .input:has(:invalid:not(:focus):not(:placeholder-shown)) {
+        animation: shake 0.2s;
+      }
+  
+      @keyframes shake {
+        0%, 100% {
+          transform: translateX(0);
+          width: calc(100% - 4px);
+        }
+  
+        20%, 40%, 60%, 80% {
+          transform: translateX(-2px);
+          width: calc(100% - 4px);
+        }
+  
+        10%, 30%, 50%, 70%, 90% {
+          transform: translateX(2px);
+          width: calc(100% - 4px);
+        }
+      }
+    }
+  
+  
+    .input:has(:placeholder-shown:not(:focus)) label span {
+      animation: none;
+    }
+  
+    .input:has(:placeholder-shown) {
+      --color: var(--invalid);
+    }
+  
+    .input:has(:invalid:not(:focus):not(:placeholder-shown)) .input__error {
+      display: block;
+    }
+  
+    form:valid [type="submit"] {
+      background: var(--valid);
+      color: var(--gray-1);
+    }
+  }
+  .animation {
+    animation: animated7 1s ease;
+  }
+
+  //height
+  $height0: 35px;
+  $height1: 80px;
+  //width
+  $width0: 96%;
+  // Color variables
+  $color0: #000000; // Black
+  $color1: #ffffff; // White
+  $color2: #D8D8D8; //
+  $color3: #f7f7f7; //
+  // border-radius variables
+  $border-radius: 4px;
+  //%  pointer
+  input, button, textarea, img, i, svg, .p-button.p-button-icon-only, .p-button.p-fileupload-choose, .boox {
+    cursor: pointer
+  }
+  //%  placeholders
+%input {
+  border: 1px solid $color2;
+  background: $color3;
+  color: $color0;
+  outline: 0;
+  text-align: left;
+  position: relative;
+  display: block;
+  width: $width0;
+  left: auto;
+  right: auto;
+  padding:0 10px;
+  box-shadow: none;
+  font-size: 16px;
+  border-radius: $border-radius;
+  margin: auto;
+}
+
+  .borderRadiusBottom {
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+    // border-bottom: none !important;
+  }
+
+  .borderRadiusTop {
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+  }
+  //Input -- textarea
+  input[type=text], input[type=number], input[type=email], input[type=submit] {
+    @extend %input;
+    height: $height0;
+  }
+
+
+  input[type=password] {
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 20px;
+    width: 80%;
+    outline: none;
+    height: 51px;
+    max-width: 80%;
+    left: 0;
+    margin: 0 10%;
+    color: var(--body-i-color);
+    background: #1C1C1C;
+    border-radius: 8px;
+    border: 0;
+  }
+
+  
+  textarea {
+    @extend %input;
+    height: $height1;
+  }
+
+  input::placeholder, textarea::placeholder {
+    color: $color0;
+  }
+
+  input:hover, input:focus, input:checked, input:focus-visible, input:focus-within, textarea:hover, textarea:focus, textarea:checked, textarea:focus-visible, textarea:focus-within {
+    outline: none;
+    box-shadow: none;
+  }

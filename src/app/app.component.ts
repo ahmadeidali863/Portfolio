@@ -9,9 +9,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit{
-  currLang : any = 'en-US';
+  currLang : string = 'en-US';
   userinfo : any ;
-  language :any;
+  language :string = 'en-US';
 
   public router = inject(Router);
   public translateService = inject(TranslateService);
@@ -25,14 +25,14 @@ export class AppComponent implements OnInit{
   // public selectLanguage (event : any) {
   //   this.translateService.use(event.target.value);
   // }
-  public selectLanguage (event : any) {
-    let lang = event.target.value;
-
+  public selectLanguage( string : string) {
+    let lang = string;
     this.translateService.use(lang);
     this.translateService.setDefaultLang(lang);
-
+    this.language = lang;
     localStorage.setItem("language", lang);
-  }
+   
+  } 
 ngOnInit() {
  
   console.log( this.authService.getUserInfo());
@@ -47,7 +47,6 @@ ngOnInit() {
     } else {
       this.scrolled = false;
     }
-    console.log(this.scrolled );
   }
 
 
@@ -96,13 +95,5 @@ ngOnInit() {
       }
     }
   
-    clickToAdsEdit () {
-      if (window.innerWidth >= 768) {
-        this.router.navigate(['/monetize/d/edit']);
-      }
-      else {
-        this.router.navigate(['/monetize/m/edit']);
-  
-      }
-    }
+   
 }

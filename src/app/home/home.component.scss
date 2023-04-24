@@ -3,16 +3,20 @@
 min-height: 100vh;
 .imageLibrarie{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr ;
     gap: 5px;
-    @media (max-width:600px){
+    @media (max-width:1600px){
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;  transition: 0.6s;
+  }
+    @media (max-width:900px){
         grid-template-columns: 1fr;
         gap: 6px;  transition: 0.6s;
     }
  
 }
-@media (min-width:1600px){
-   max-width: 80%;
+@media (min-width:600px){
+   max-width: 90%;
    margin: auto;   transition: 0.6s;
 }
 }
@@ -20,89 +24,60 @@ min-height: 100vh;
   img{
     width: 100%;
     margin: auto;
-    position: relative;
     display: flex;
-    /* left: 5%; */
     height: 100%;
     cursor: pointer;
     transition: 0.6s;
+    object-fit: cover;
     @media (max-width:600px){
       width: 90%;
   }
   }
-.imageSelected{
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    top: 0;
-    animation: openimage 0.6s;
-    border-radius: 12px;
-    overflow: hidden;
-     z-index: 9;
-}
-.imageSelected::before {
-  position: absolute;
-  content: '';
-  background: inherit;
-  height: 370px;
-  width: 650px;
-  left: -25px;
-  right: 0;
-  top: -25px;
-  bottom: 0;
-  box-shadow: inset 0 0 0 3000px rgba(150, 150, 150, 0.192);
-  filter: blur(10px);
-}
-// .imageSelectedExit{
-//     position: fixed;
-//     width: 100%;
-//     height: 100%;
-//     overflow: hidden;
-//      z-index: 1;
-//      top: 0;
-// }
-@keyframes openimage {
-    from {opacity: 0;}
-    to {   opacity: 1;;
-       }
-  }
-  .imageSelectedOptions{
-    width: 100%;
-    height: 9%;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
- 
-    .exitImage{
-      position: absolute;
-      width: 40px;
-      height: 40px;
-      right: 8px;
-      top: 8px;
-      z-index: 3;
-   }
-  }
-.imageSelectedContaner{
-    width: 100%;
-    height: 91%;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  //  box-shadow: rgba(0, 0, 0, 0.6) 0px 1px 3px;
-  //  background-color: rgb(255, 255, 255);
-  img{
-    object-fit: contain;
-   // width: 90%;
-   // height: 90%;
-  }
-}
-.rotate-scale {
-  transition: transform 0.5s ease;
-}
-.rotate-scale:hover {
-  transform: rotate(90deg) scale(1.5);
+.imageContainer{
   width: 100%;
+    height: 450px;
+    overflow: hidden;
+    position: relative;
+    @media (max-width:600px){
+      height: 300px;
+   }
+   .type{
+    display: none;
+   }
 }
+.imageContainer:hover{
+ 
+    img{
+      transform: scale(1.1);
+    }
+    .type{
+      display: flex;
+      position: absolute;
+      align-items: center;
+      width: 60%;
+      color: #fff;
+      padding-left: 10%;
+      padding-bottom: 2px;
+    height: 30px;
+    background: #2b5566;
+    top: 10%;
+    z-index: 5;
+    left: 0px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    animation:typehover 0.6s ;
+    }
+}
+
+@keyframes typehover {
+  from {opacity: 0; width: 20px;}
+  to {   opacity: 1; width: 60%;
+     }
+}
+
+
+
+
+
+/////////////
+/// 
