@@ -1,0 +1,49 @@
+<form #Usersfrm="ngForm">
+    <div class="formInput">
+      
+      <div class="formLabel">
+        {{'Admin.Email' | translate}} :
+      </div>
+      <div class="input">
+        <input type="email" class="socialInputBox" [(ngModel)]="iUser.email" title="example@mail.com"
+               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+               id="email" ngModel #email="ngModel" required name="email" minlength="3" maxlength="320"
+               [ngStyle]="{'border-color': email?.touched && email?.invalid ? 'var(--color)' : '' }"
+               placeholder="{{'Belbio.Emailaddress' | translate}}" />
+        <span *ngIf="email?.touched && email?.invalid" class="row" style="padding: 2px 10px 10px 10px;">
+          <span class="text-danger" *ngIf="email?.touched && email?.invalid">
+            {{ 'Validations.EmailExample' | translate }}
+          </span>
+          <span class="text-danger" *ngIf="iUser.email.length <= 3 || iUser.email.length >= 320">
+            {{ 'Validations.EmailLengthRequired' | translate }}
+          </span>
+        </span>
+      </div>
+      <div class="formLabel">
+        {{'Admin.Password' | translate}} :
+      </div>
+      <div class="input">
+        <input type="{{ showPassword ? 'text' : 'password' }}" class="digitalInputBox" [(ngModel)]="iUser.password" title="{{'Admin.Password' | translate}}"
+                  pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,}$" 
+                  id="iUserPassword" ngModel #iUserPassword="ngModel" required name="iUserPassword" minlength="8"
+                  [ngClass]="{ 'digitalInputBoxopen': useAfterIcon == false , 'digitalInputBoxclose': useAfterIcon  == true }"
+                  [ngStyle]="{'border-color': (iUserPassword?.touched && iUserPassword?.invalid) ? 'var(--color)' : '' }"
+                  placeholder="{{'Admin.Password' | translate}}">
+        <span *ngIf="iUserPassword?.touched && iUserPassword?.invalid" class="row" style="padding: 2px 10px 10px 10px;">
+          <span class="text-danger" *ngIf="iUserPassword?.touched && iUserPassword?.invalid">
+            Please Insert a valid  {{'Admin.Password' | translate}}
+          </span>
+          <span class="text-danger" *ngIf="iUser.password.length <= 1">
+            {{'General.Passwordisrequired' | translate}}
+          </span>
+        </span>
+    </div>
+    <input type="checkbox" name="showPassword" id="showPassword" [(ngModel)]="showPassword" /><label for="showPassword">Show Password</label>
+     
+    </div>
+    <div class="digitalbutton" >
+        <button type="button" class="digitalbuttonadd" (click)="submitUser(Usersfrm)">
+          <i class="fa-solid fa-check"></i>
+        </button>
+      </div>
+  </form>

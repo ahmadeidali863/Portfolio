@@ -4,13 +4,16 @@ import {FormsModule } from '@angular/forms';
 import { Category } from '../core/domain/category';
 import { ImageService } from '../core/services/image.service';
 import { TranslateModule } from '@ngx-translate/core';
+import { RouterModule } from '@angular/router';
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 @Component({
   selector: 'app-admin',
   standalone: true,
   imports: [CommonModule,
     FormsModule,
-    TranslateModule
+    TranslateModule,
+    RouterModule
     ],
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.scss']
@@ -23,18 +26,17 @@ export class AdminComponent {
     title: '',
     description: '',
     previewImage: '',
-    previewImageFile: '',
-    id: ''
+    id: '',
+    previewImageFile: undefined
   }
 public imageService = inject(ImageService);
-
 
 
 //uploadImage
 
 url: any = '';
 fileDigitalProducts: any = '';
-submitDigitalProductsPreviewImage(event: any) {
+submitImage(event: any) {
   if (event.target.files[0].size > 20000000) {
     console.log('image is ' + '  .')
     return;
@@ -68,6 +70,7 @@ submitDigitalProductsPreviewImage(event: any) {
  
 }
 
+ auth = getAuth();
 
 ///submit
 submitLibrary(libraryfrm:any): void {
@@ -85,34 +88,30 @@ submitLibrary(libraryfrm:any): void {
   //   return
   // }
   console.log(this.iCategory);
-  this.imageService.addCategory(this.iCategory);
-  // this.imageService.addDigitalProducts(this.IDigitalProducts).pipe(takeUntil(this.destroy$)).subscribe(() => {
-  //   this.initModal();
-  //   this.toastr.success("Digital Product Added successfully");
-  //   this.previewImageFile = null;
-  //   this.digitalProductFile = null;
-  //   this.IDigitalProducts.description = '';
-  //   this.IDigitalProducts.digitalProductFile = '';
-  //   this.IDigitalProducts.price = 0;
-  //   this.IDigitalProducts.title = '';
-  //   this.IDigitalProducts.previewImage = '';
-  //   this.previewImageFile = null;
-  //   this.digitalProductFile = null;
-  //   //this.digitalProductsVm = new DigitalProductsVm();
-  //   this.digitalProductSubmitted = false;
-  //   this.digital = false;
+  // this.imageService.createCategory(this.iCategory).then(() => {
+  //   console.log('Category added successfully');
+  // }).catch((error) => {
+  //   console.error(error);
   // });
-  // } else {
-  //   // this.toastr.warning("Invalid Data");
-  //     this.translateService
-  //         .get('Common.InvalidData')
-  //         .subscribe((successMessage: string) => {
-  //             this.toastr.warning(successMessage);
+  
 
-  //         });
-  // }
+ 
+  createUserWithEmailAndPassword(this.auth, this.iCategory.title, this.iCategory.description)
+    .then((responed) => {
+      // Signed in 
+    console.log(responed.user)
+      // ...
+    })
+    .catch((error) => {
+      alert(error)
+      // ..
+    });
+
 }
 }
+
+
+
 }
 
 

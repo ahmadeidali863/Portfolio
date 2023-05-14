@@ -3,10 +3,25 @@
     "Home": {
         "Work": "أعمالي",
         "AboutMe": "ْعَنِّي",
+        "LogIn": "تسجيل الدخول",
         "Contact": "معلومات التواصل"
     },
     "Language": {
         "English": "إنجليزي",
         "Arabic": "عربي"
+    },
+    "Admin":{
+        "Title":"العنوان",
+        "Description":"الوصف",
+        "Image":"الصورة",
+        "Email":"ايميل",
+        "Password":"كلمة السر",
+        "UploadImage":"حمل الصورة"
+    },
+    "General":{
+        "Categories":"الفئات",
+        "Profile":"حساب الشخصي",
+        "CategoryImages":"فئة الصور",
+        "Security":"الحماية"
     }
 }

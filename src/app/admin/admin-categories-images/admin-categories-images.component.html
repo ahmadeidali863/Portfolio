@@ -1,0 +1,67 @@
+<div class="categoriesSection" *ngFor="let item of this.categories">
+    <div class="categoriesBox" *ngFor="let items of item" (click)="categorySelected(items.id)" >
+        {{items.title}} - 
+      </div>
+  
+  </div>
+  <hr>
+  <div *ngIf="this.image.categoryId" class="imagesPerCategory">
+    <form #libraryfrm="ngForm" class="form">
+        <div class="formInput">
+          <div class="formLabel">
+            {{'Admin.Title' | translate}} :
+          </div>
+          <!--   pattern="[A-Za-z0-9_\-\+\ ]{1,50}" -->
+          <div class="input">
+            <input type="text" class="digitalInputBox" [(ngModel)]="image.title" title="{{'Belbio.Title' | translate}}"
+                   pattern="[A-Za-z0-9_\-\+\ ]{1,50}"
+                   id="imageTitle" ngModel #imageTitle="ngModel" required name="imageTitle" minlength="1" maxlength="50"
+                   [ngStyle]="{'border-color': (imageTitle?.touched && imageTitle?.invalid) ? 'var(--color)' : '' }"
+                   placeholder="{{'Belbio.Title' | translate}}" />
+            <span *ngIf="imageTitle?.touched && imageTitle?.invalid" class="row" style="padding: 2px 10px 10px 10px;">
+              <span class="text-danger" *ngIf="imageTitle?.touched && imageTitle?.invalid">
+                Please Insert a valid  {{'Belbio.Title' | translate}}
+              </span>
+              <span class="text-danger" *ngIf="image.title.length <= 1 || image.title.length >= 50">
+                {{'General.Titleisrequired' | translate}}
+              </span>
+            </span>
+          </div>
+          <div class="formLabel">
+            {{'Admin.Image' | translate}} :
+          </div> 
+           <div class="input">
+            <input type="file" ngModel #uploadImage="ngModel" accept=".png, .jpg, .jpeg" class="imageInputBox" style="display:none"
+                   (change)="onFileSelected($event)" id="uploadImage"
+                   name="uploadImage" />
+            <label for="uploadImage"
+                   [ngStyle]="{'height.px': (url) ? '200' : '40'}"
+                   class="imageInputuploadBox">
+              <img *ngIf="url" [src]="url" height="200" width="300">
+             <span *ngIf="!url"> {{'Admin.UploadImage' | translate}} </span>
+            </label>
+          </div>
+          <div>
+            <div class="progress">
+            <div class="progress-bar" role="progressbar"[ngStyle]="{'width.%': this.progress ? this.progress : this.progress}">
+            <span class="progress-text">{{this.progress}} %</span>
+            </div>
+            </div>
+        </div>
+          <div class="digitalbutton" >
+            <button type="button" class="digitalbuttonadd" (click)="addImagetoCategury(libraryfrm)">
+                {{'Admin.addImagetoCategury' | translate}}
+              </button>
+          </div>
+        </div>
+      
+      </form>
+      <div class="images">
+        <div class="designsbox" *ngFor="let item of this.categoryImages">
+            <div class="designsboximg" *ngFor="let items of item">
+                      <img width="75" height="75" src="{{items.imageSrc}}" />
+              </div>
+          
+          </div>
+      </div>
+  </div>

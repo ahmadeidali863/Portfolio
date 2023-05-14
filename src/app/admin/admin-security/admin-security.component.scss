@@ -1,0 +1,26 @@
+.formInput::before {
+        display: block;
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+        height: 20px; 
+        width: 20px;
+        background-image: url("/assets/images/hide.png"); 
+        background-repeat: no-repeat;
+        background-size: contain;
+}
+        .digitalInputBoxclose {
+            &::after{
+        display: block;
+        position: absolute;
+        top: 50%;
+        right: 10px; 
+        transform: translateY(-50%);
+        height: 20px; 
+        width: 20px;
+        background-image: url("/assets/images/eye.png"); 
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+}

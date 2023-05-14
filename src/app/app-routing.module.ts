@@ -12,12 +12,16 @@ const routes: Routes = [
     loadComponent: () => import('../app/gallery/gallery.component').then(m => m.GalleryComponent)
   },
   {
+    path: 'login',
+    loadComponent: () => import('../app/login/login.component').then(m => m.LoginComponent)
+  },
+  {
     path: 'aboutme',
     loadComponent: () => import('../app/home/home.component').then(m => m.HomeComponent)
   },
   {
     path: 'admin',
-    loadComponent: () => import('../app/admin/admin.component').then(m => m.AdminComponent)
+    loadChildren: () => import('../app/admin/admin.module').then(m => m.AdminModule)
   },
   {
     path: 'contact',

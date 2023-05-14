@@ -4,5 +4,5 @@ export interface Category {
   title: string;
   description: string;
   previewImage:string;
-  previewImageFile : File | any;
+  previewImageFile : File | undefined;
 }

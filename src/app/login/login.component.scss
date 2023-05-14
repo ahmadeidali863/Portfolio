@@ -1,0 +1,53 @@
+
+
+  
+  .form {
+    z-index: 15;
+    position: relative;
+    background: #FFFFFF;
+    width: 600px;
+    border-radius: 4px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    margin: 100px auto 10px;
+    overflow: hidden;
+  }
+ 
+  button {
+    outline: none;
+    background: #2b5566;
+    width: 80%;
+    margin: 12px auto;
+    border: 0;
+    border-radius: 4px;
+    padding: 12px 20px;
+    color: #FFFFFF;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: 500;
+    line-height: inherit;
+    cursor: pointer;
+  }
+  .digitalbutton{
+    display:grid;
+  }
+  .form-panel {
+    padding: 60px calc(5% + 60px) 60px 60px;
+    box-sizing: border-box;
+  }
+  .form-header {
+    margin: 0 0 40px;
+  }
+  .form-header h1 {
+    padding: 4px 0;
+    color:#2b5566;
+    font-size: 24px;
+    font-weight: 700;
+  }
+#showPassword ~ label{
+    img{  width: 20px;
+        position: absolute;
+        top: 11px;
+        right: 12px;}
+  
+}

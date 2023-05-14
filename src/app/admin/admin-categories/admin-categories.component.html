@@ -1,0 +1,78 @@
+<form #libraryfrm="ngForm">
+    <div class="formInput">
+      
+      <div class="formLabel">
+        {{'Admin.Title' | translate}} :
+      </div>
+      <!--   pattern="[A-Za-z0-9_\-\+\ ]{1,50}" -->
+      <div class="input">
+        <input type="text" class="digitalInputBox" [(ngModel)]="iCategory.title" title="{{'Belbio.Title' | translate}}"
+            
+               id="iCategoryTitle" ngModel #iCategoryTitle="ngModel" required name="iCategoryTitle" minlength="1" maxlength="50"
+               [ngStyle]="{'border-color': (iCategoryTitle?.touched && iCategoryTitle?.invalid) ? 'var(--color)' : '' }"
+               placeholder="{{'Belbio.Title' | translate}}" />
+        <span *ngIf="iCategoryTitle?.touched && iCategoryTitle?.invalid" class="row" style="padding: 2px 10px 10px 10px;">
+          <span class="text-danger" *ngIf="iCategoryTitle?.touched && iCategoryTitle?.invalid">
+            Please Insert a valid  {{'Belbio.Title' | translate}}
+          </span>
+          <span class="text-danger" *ngIf="iCategory.title.length <= 1 || iCategory.title.length >= 50">
+            {{'General.Titleisrequired' | translate}}
+          </span>
+        </span>
+      </div>
+      <div class="formLabel">
+        {{'Admin.Description' | translate}} :
+      </div>
+      <div class="input">
+        <textarea type="text" class="digitalInputBox" [(ngModel)]="iCategory.description" title="{{'Belbio.Description' | translate}}"
+                  pattern="[A-Za-z0-9_\-\+\ ]{1,}"
+                  rows="7"
+                  id="iCategoryDescription" ngModel #iCategoryDescription="ngModel" required name="iCategoryDescription" minlength="1"
+                  [ngStyle]="{'border-color': (iCategoryDescription?.touched && iCategoryDescription?.invalid) ? 'var(--color)' : '' }"
+                  placeholder="{{'Belbio.Description' | translate}}"></textarea>
+        <span *ngIf="iCategoryDescription?.touched && iCategoryDescription?.invalid" class="row" style="padding: 2px 10px 10px 10px;">
+          <span class="text-danger" *ngIf="iCategoryDescription?.touched && iCategoryDescription?.invalid">
+            Please Insert a valid  {{'Belbio.Description' | translate}}
+          </span>
+          <span class="text-danger" *ngIf="iCategory.description.length <= 1">
+            {{'General.Descriptionisrequired' | translate}}
+          </span>
+        </span>
+      </div>
+      <div class="formLabel">
+        {{'Admin.Image' | translate}} :
+      </div> 
+       <div class="input">
+        <input type="file" ngModel #uploadImage="ngModel" accept=".png, .jpg, .jpeg" class="imageInputBox" style="display:none"
+               (change)="onFileSelected($event)" id="uploadImage"
+               name="uploadImage" />
+        <label for="uploadImage"
+               [ngStyle]="{'height.px': (url) ? '200' : '40'}"
+               class="imageInputuploadBox">
+          <img *ngIf="url" [src]="url" height="200" width="300">
+         <span *ngIf="!url"> {{'Admin.UploadImage' | translate}} </span>
+        </label>
+      </div>
+      <div><div class="progress">
+        <div class="progress-bar" role="progressbar"[ngStyle]="{'width.%': this.progress ? this.progress : this.progress}">
+        <span class="progress-text">{{this.progress}} %</span>
+        </div>
+        </div></div>
+      <div class="digitalbutton" >
+        <button type="button" class="digitalbuttonadd" (click)="addCateguries(libraryfrm)">
+            {{'Admin.addCateguries' | translate}}
+          </button>
+          <button type="button" class="digitalbuttonadd" (click)="updateCateguries(libraryfrm)">
+            {{'Admin.updateCateguries' | translate}}
+          </button>
+      </div>
+    </div>
+  
+  </form>
+
+  <div class="designsbox" *ngFor="let item of this.categories">
+    <div class="designsboximg" *ngFor="let items of item" (click)="updateActive(items.id)">
+              <img width="75" height="75" src="{{items.previewImage}}" />
+      </div>
+  
+  </div>

@@ -34,8 +34,11 @@
       <h2>Abood Albyaari</h2>
     </div>
       <div class="header-icons">
-        <div class="language" *ngIf="language === 'ar-JO'" (click)="selectLanguage('en-US')"> {{ 'Language.English' | translate }}</div>
-        <div class="language" *ngIf="language === 'en-US'" (click)="selectLanguage('ar-JO')"> {{ 'Language.Arabic' | translate }}</div>
+        <ul class="mobile">
+          <li><a class="language" *ngIf="language === 'ar-JO'" (click)="selectLanguage('en-US')">{{ 'Language.English' | translate }}</a></li>
+          <li><a class="language" *ngIf="language === 'en-US'" (click)="selectLanguage('ar-JO')"> {{ 'Language.Arabic' | translate }}</a></li>
+          <li><a class="login"  [routerLink]="['/login']" > {{ 'Home.LogIn' | translate }}</a></li>
+        </ul>
         <!-- <select class="language mobile" (change)="selectLanguage($event)">
           <option value="en-US" [selected]="language === 'en-US'"> {{ 'Language.English' | translate }} </option>
           <option value="ar-JO" [selected]="language === 'ar-JO'"> {{ 'Language.Arabic' | translate }} </option>
@@ -56,7 +59,7 @@
               <div *ngIf="language === 'ar-JO'" (click)="selectLanguage('ar-JO')"> {{ 'Language.English' | translate }}</div>
               <div *ngIf="language === 'en-US'" (click)="selectLanguage('en-US')"> {{ 'Language.Arabic' | translate }}</div>
             </li>
-
+            <li><a  [routerLink]="['/login']">{{ 'Home.LogIn' | translate }}</a></li>
           </ul>
         </div>
       </div>

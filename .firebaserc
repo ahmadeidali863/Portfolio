@@ -1,5 +1,5 @@
 {
   "projects": {
-    "default": "portfolio-4286b"
+    "default": "https://portfolio-4286b-default-rtdb.europe-west1.firebasedatabase.app/"
   }
 }

@@ -1,0 +1,80 @@
+.categoriesSection{
+    width: 100%;
+    background: #2b556640;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 6px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    max-height: 500px;
+    overflow: auto;
+    .categoriesBox{
+        height: 40px;
+        border: 1px solid #fff;
+        background: #2b556690;
+        display: grid;
+        color: #fff;
+        align-items: center;
+        width: 90%;
+        margin: 10px auto;
+        cursor: pointer;
+    }
+}
+
+pre{
+    color: #000;
+  }
+  .progress {
+    height: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  
+  .progress-bar {
+    background-color: #000;
+    height: 100%;
+    width: 0%;
+    float: left;
+    transition: width .2s linear;
+  }
+  
+  .progress-text {
+    float: left;
+    margin-left: 7px;
+    color: #fff;
+  }
+  .imagesPerCategory{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+    .form{
+        border-bottom: 1px solid #00000090;
+      
+    }
+    .images{
+
+        .designsbox {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            color: #fff;
+            gap: 6px;
+        
+            .designsboximg {
+              background-color: rgba(255, 255, 255, 0.1254901961);
+              width: 100%;
+              position: relative;
+              display: block;
+              border-radius: 6px;
+        
+              img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+              }
+            }
+          }
+    }
+  }

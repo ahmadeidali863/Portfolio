@@ -3,10 +3,25 @@
     "Home": {
         "Work": "Work",
         "AboutMe": "About Me",
+        "LogIn": "LogIn",
         "Contact": "Contact"
     },
     "Language": {
         "English": "English",
         "Arabic": "Arabic"
+    },
+     "Admin": {
+        "Title":"Title",
+        "Description":"Description",
+        "Image":"Image",
+        "Email":"Email",
+        "Password":"Password",
+        "UploadImage":"Upload Image"
+    },
+    "General":{
+        "Categories":"Categories",
+        "Profile":"Profile",
+        "CategoryImages":"Category Images",
+        "Security":"Security"
     }
 }

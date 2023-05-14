@@ -8,9 +8,10 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore/'; 
+import { AngularFireStorageModule } from '@angular/fire/compat/storage'; 
 import { AngularFireModule } from '@angular/fire/compat';
 import { initializeApp } from 'firebase/app';
-import { getAnalytics } from "firebase/analytics";
+import { getFirestore } from 'firebase/firestore';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http,
     './assets/i18n/app/',
@@ -27,8 +28,8 @@ const firebaseConfig = {
   measurementId: "G-2VDSLNN31J"
 };
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+export const app = initializeApp(firebaseConfig);
+export const database = getFirestore(app);
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ const analytics = getAnalytics(app);
     HttpClientModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule,
+    AngularFireStorageModule,
     BrowserAnimationsModule,
     TranslateModule.forRoot({
       loader: {
