@@ -11,6 +11,7 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore/';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage'; 
 import { AngularFireModule } from '@angular/fire/compat';
 import { initializeApp } from 'firebase/app';
+
 import { getFirestore } from 'firebase/firestore';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http,

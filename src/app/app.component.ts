@@ -2,6 +2,8 @@ import { Component, HostListener, OnInit, inject } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { AuthService } from './core/services/auth.service';
 import { Router } from '@angular/router';
+import { collection, getDocs } from 'firebase/firestore';
+import { database } from './app.module';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +14,7 @@ export class AppComponent implements OnInit{
   currLang : string = 'en-US';
   userinfo : any ;
   language :string = 'en-US';
-
+  categories: any[] = [];
   public router = inject(Router);
   public translateService = inject(TranslateService);
   public authService = inject(AuthService);
@@ -34,6 +36,7 @@ export class AppComponent implements OnInit{
    
   } 
 ngOnInit() {
+  this.getdata();
  
   console.log( this.authService.getUserInfo());
    }
@@ -47,6 +50,19 @@ ngOnInit() {
     } else {
       this.scrolled = false;
     }
+  }
+  collectionRef = collection(database, 'categories');
+  getdata(){
+    this.categories = [];
+    getDocs(this.collectionRef).then((res) =>{
+      this.categories.push( res.docs.map((item) =>{
+      //  console.log(item.data());
+        return {...item.data(), id: item.id};
+      }))
+      }).catch((err) => {
+        alert(err)
+      })
+     // console.log(this.categories);
   }
 
 

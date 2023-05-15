@@ -1,48 +1,21 @@
 <div id="{{'currentLang' | translate}}" class="themeBlack">
-  <!-- 
-   -->
 
-<!-- <section class="scrollable" [class.scrolled]="scrolled">
-  <nav>
-    <ul>
-      <li><a routerLinkActive="active" class="active" [routerLink]="['/home']">{{ 'Home.Work' | translate }}</a></li>
+    <section class="scrollable header" [class.scrolled]="scrolled">
+    
+      <div class="logo">
+      <h2>Abood Albyaari.</h2>
+    </div>
+    <ul class="mobile">
+      <li><a routerLinkActive="active" class="active " [routerLink]="['/home']">{{ 'Home.Work' | translate }}</a></li>
       <li><a routerLinkActive="active" [routerLink]="['/aboutme']">{{ 'Home.AboutMe' | translate }}</a></li>
       <li><a routerLinkActive="active" [routerLink]="['/contact']">{{ 'Home.Contact' | translate }}</a></li>
     </ul>
-    <div class="logo">
-      <h2>Abood Albyaari</h2>
-    </div>
-    <div>
-      <select class="language mobile btn-primary btn-merchess" (change)="selectLanguage($event)">
-        <option value="en-US" [selected]="language === 'en-US'"> {{ 'Language.English' | translate }} </option>
-        <option value="ar-JO" [selected]="language === 'ar-JO'"> {{ 'Language.Arabic' | translate }} </option>
-      </select>
-    </div>
-  </nav>
-  <section class="welcomeSection">
-
-  </section>
-</section> -->
-
-    <section class="scrollable header" [class.scrolled]="scrolled">
-      <ul class="mobile">
-        <li><a routerLinkActive="active" class="active " [routerLink]="['/home']">{{ 'Home.Work' | translate }}</a></li>
-        <li><a routerLinkActive="active" [routerLink]="['/aboutme']">{{ 'Home.AboutMe' | translate }}</a></li>
-        <li><a routerLinkActive="active" [routerLink]="['/contact']">{{ 'Home.Contact' | translate }}</a></li>
-      </ul>
-      <div class="logo">
-      <h2>Abood Albyaari</h2>
-    </div>
       <div class="header-icons">
         <ul class="mobile">
           <li><a class="language" *ngIf="language === 'ar-JO'" (click)="selectLanguage('en-US')">{{ 'Language.English' | translate }}</a></li>
           <li><a class="language" *ngIf="language === 'en-US'" (click)="selectLanguage('ar-JO')"> {{ 'Language.Arabic' | translate }}</a></li>
           <li><a class="login"  [routerLink]="['/login']" > {{ 'Home.LogIn' | translate }}</a></li>
         </ul>
-        <!-- <select class="language mobile" (change)="selectLanguage($event)">
-          <option value="en-US" [selected]="language === 'en-US'"> {{ 'Language.English' | translate }} </option>
-          <option value="ar-JO" [selected]="language === 'ar-JO'"> {{ 'Language.Arabic' | translate }} </option>
-        </select> -->
       <div class="menu-icon">
         <svg fill="none" (click)="openMobileMenu()" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
@@ -66,6 +39,56 @@
     </div>
   </section>
   <section class="welcomeSection">
-
+    <section class="o-main-section"  *ngFor="let item of this.categories">
+      <h2 class="c-main-heading">Portfolio</h2>
+<div  class="c-main-contaner">
+      <article class="c-article" *ngFor="let items of item" >
+        <a class="c-article__link" href="#">
+          <div>
+            <header>
+              <h3 class="c-article__heading">{{items.title}}</h3>
+            </header>
+            <div class="c-article__content">
+              {{items.description}}
+            </div>
+          </div>
+          <div class="c-article__img-wrapper">
+            <img class="c-article__img" src="{{items.previewImage}}" alt="Ink transition with PNG sprite" />
+          </div>
+        </a>
+      </article>
+    </div>
+      <!-- <article class="c-article">
+        <a class="c-article__link" href="#">
+          <div>
+            <header>
+              <h3 class="c-article__heading">Responsive Mondrian art with CSS grid</h3>
+            </header>
+            <div class="c-article__content">
+              Make a responsive Mondrian art with CSS grid layout.
+            </div>
+          </div>
+          <div class="c-article__img-wrapper">
+            <img class="c-article__img" src="https://assets.codepen.io/204808/css-grid-mondrian.png" alt="Responsive Mondrian art with CSS grid" />
+          </div>
+        </a>
+      </article>
+  
+      <article class="c-article">
+        <a class="c-article__link" href="#">
+          <div>
+            <header>
+              <h3 class="c-article__heading">Space rocket with request Animation Frame</h3>
+            </header>
+            <div class="c-article__content">
+              Create the space rocket animation with stars in different perspective.
+            </div>
+          </div>
+          <div class="c-article__img-wrapper">
+            <img class="c-article__img" src="https://assets.codepen.io/204808/17.Space-Rocket-with-requestAnimationFrame.png" alt="Responsive Mondrian art with CSS grid" />
+          </div>
+        </a>
+      </article> -->
+    </section>
   </section>
-<router-outlet></router-outlet>
+<!-- <router-outlet></router-outlet> -->
