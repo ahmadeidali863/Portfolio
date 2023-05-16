@@ -1,17 +1,20 @@
 
 <section class="galleryLibraries">
-    <a class="imageLibrarie" *ngIf="images.length;else loadingImagePlaceholder">
-    <div class="imageContainer" *ngFor="let item of images">
+    <a  *ngIf="categoryImages.length;else loadingImagePlaceholder">
+    <div class="imageLibrarie" *ngFor="let item of categoryImages">
+      
+    <div class="imageContainer" *ngFor="let items of item">
       
         <img 
         loading="lazy"
-        src="{{item}}"
-        (click)="openImage(item,$event)"
+        src="{{items.imageSrc}}"
+        (click)="openImage(items.imageSrc,$event)"
         alt="Image description">
+    </div>
     </div>
 </a>
     <ng-template #loadingImagePlaceholder >
-        <a class="imageLibrarie" *ngIf="!images.length">
+        <a class="imageLibrarie" *ngIf="!categoryImages.length">
         <div class="imageContainer" style="height: 400px;background-color:black ;width: 100%;">
         
         </div>

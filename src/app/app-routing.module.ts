@@ -8,7 +8,7 @@ const routes: Routes = [
     loadComponent: () => import('../app/home/home.component').then(m => m.HomeComponent)
   },
   {
-    path: 'gallery',
+    path: 'gallery/:id',
     loadComponent: () => import('../app/gallery/gallery.component').then(m => m.GalleryComponent)
   },
   {

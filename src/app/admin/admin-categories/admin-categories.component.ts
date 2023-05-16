@@ -40,7 +40,8 @@ export class AdminCategoriesComponent implements OnInit{
     imageSrc: '',
     title: '',
     categoryId: '',
-    userName: ''
+    userName: '',
+    id: ''
   }
 public imageService = inject(ImageService);
 //------------------
@@ -113,13 +114,11 @@ getdata(){
   this.categories = [];
   getDocs(this.collectionRef).then((res) =>{
     this.categories.push( res.docs.map((item) =>{
-    //  console.log(item.data());
       return {...item.data(), id: item.id};
     }))
     }).catch((err) => {
       alert(err)
     })
-   // console.log(this.categories);
 }
 ngOnInit() {
   this.getdata();

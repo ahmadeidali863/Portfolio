@@ -1,31 +1,64 @@
 
-<section class="galleryLibraries">
-            <a class="imageLibrarie" *ngIf="images.length;else loadingImagePlaceholder" >
-            <div class="imageContainer" *ngFor="let item of images">
-            <div class="type">type</div>
-                <img 
-                loading="lazy"
-                src="{{item}}"
-                (click)="opengalleryType()"
-                alt="Image description">
-            </div>
-        </a>
-     
-            <ng-template #loadingImagePlaceholder >
-                <a class="imageLibrarie" *ngIf="!images.length">
-                <div class="imageContainer" style="height: 400px;background-color:black ;width: 100%;">
-                
-                </div>
-                <div class="imageContainer" style="height: 400px;background-color:rgb(141, 79, 79) ;width: 100%;">
-                
-                </div>
-                <div class="imageContainer" style="height: 400px;background-color:rgb(35, 116, 112) ;width: 100%;">
-                
-                </div>
-                <div class="imageContainer" style="height: 400px;background-color:rgb(145, 25, 125) ;width: 100%;">
-                
-                </div>
-                </a>
-              </ng-template>
-             
-</section>
+<section class="o-main-section" *ngIf="categories.length;else loadingImagePlaceholder">
+    <h2 class="c-main-heading">Portfolio</h2>
+<div  class="c-main-contaner"  *ngFor="let item of this.categories">
+    <article class="c-article" *ngFor="let items of item"   (click)="opengalleryType(items.id)">
+      <a class="c-article__link">
+        <div>
+          <header>
+            <h3 class="c-article__heading">{{items.title}}</h3>
+          </header>
+          <div class="c-article__content">
+            {{items.description}}
+          </div>
+        </div>
+        <div class="c-article__img-wrapper">
+          <img class="c-article__img" src="{{items.previewImage}}" alt="Ink transition with PNG sprite" />
+        </div>
+      </a>
+    </article>
+  </div>
+ 
+  </section>
+  <ng-template #loadingImagePlaceholder >
+    <div class="o-main-section">
+        <h2 class="c-main-heading">Portfolio</h2>
+    <div  class="c-main-contaner" >
+        <article class="c-article">
+          <a class="c-article__link loadingTemplate">
+          
+          </a>
+        </article>
+        <article class="c-article">
+          <a class="c-article__link loadingTemplate " >
+          
+          </a>
+        </article>
+        <article class="c-article">
+          <a class="c-article__link loadingTemplate" >
+          
+          </a>
+        </article>
+        <article class="c-article">
+          <a class="c-article__link loadingTemplate" >
+          
+          </a>
+        </article>
+        <article class="c-article">
+          <a class="c-article__link loadingTemplate" >
+          
+          </a>
+        </article>
+        <article class="c-article">
+          <a class="c-article__link loadingTemplate" >
+          
+          </a>
+        </article>
+        <article class="c-article">
+          <a class="c-article__link loadingTemplate" >
+          
+          </a>
+        </article>
+      </div>
+    </div>
+  </ng-template>

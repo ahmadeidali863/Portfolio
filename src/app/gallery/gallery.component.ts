@@ -1,6 +1,9 @@
 import { ChangeDetectorRef, Component, HostListener, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
+import { ActivatedRoute } from '@angular/router';
+import { collection, getDocs } from 'firebase/firestore';
+import { database } from '../app.module';
 
 @Component({
   selector: 'app-gallery',
@@ -12,6 +15,7 @@ import { TranslateModule } from '@ngx-translate/core';
 })
 export class GalleryComponent implements OnInit {
   images: any[]=[];
+  categoryImages: any[] = [];
   selectedImage:string='';
   imagesize:boolean=false;
   imageRotate:boolean=false;
@@ -19,16 +23,31 @@ export class GalleryComponent implements OnInit {
   currentWidth: number = 0;
   currentHeight: number = 0;
   private cdr = inject(ChangeDetectorRef);
+  private route = inject(ActivatedRoute);
 constructor(){
  
 }
 
   ngOnInit(): void {
+    let id = this.route.snapshot.params['id'];
+    this.categorySelected(id);
+    console.log(id)
     setTimeout(() => {
       this.image();
       this.cdr.detectChanges();
     }, 400);
  
+  }
+  categorySelected(id : string){
+    this.categoryImages = [];
+    getDocs(collection(database, `categories/${id}/images`)).then((res) =>{
+      this.categoryImages.push( res.docs.map((item) =>{
+       console.log(item.data());
+        return {...item.data(), id: item.id};
+      }))
+      }).catch((err) => {
+        alert(err)
+      })
   }
   @HostListener('window:resize', ['$event'])
   onResize(event:any) {

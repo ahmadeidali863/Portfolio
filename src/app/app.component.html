@@ -39,56 +39,6 @@
     </div>
   </section>
   <section class="welcomeSection">
-    <section class="o-main-section"  *ngFor="let item of this.categories">
-      <h2 class="c-main-heading">Portfolio</h2>
-<div  class="c-main-contaner">
-      <article class="c-article" *ngFor="let items of item" >
-        <a class="c-article__link" href="#">
-          <div>
-            <header>
-              <h3 class="c-article__heading">{{items.title}}</h3>
-            </header>
-            <div class="c-article__content">
-              {{items.description}}
-            </div>
-          </div>
-          <div class="c-article__img-wrapper">
-            <img class="c-article__img" src="{{items.previewImage}}" alt="Ink transition with PNG sprite" />
-          </div>
-        </a>
-      </article>
-    </div>
-      <!-- <article class="c-article">
-        <a class="c-article__link" href="#">
-          <div>
-            <header>
-              <h3 class="c-article__heading">Responsive Mondrian art with CSS grid</h3>
-            </header>
-            <div class="c-article__content">
-              Make a responsive Mondrian art with CSS grid layout.
-            </div>
-          </div>
-          <div class="c-article__img-wrapper">
-            <img class="c-article__img" src="https://assets.codepen.io/204808/css-grid-mondrian.png" alt="Responsive Mondrian art with CSS grid" />
-          </div>
-        </a>
-      </article>
-  
-      <article class="c-article">
-        <a class="c-article__link" href="#">
-          <div>
-            <header>
-              <h3 class="c-article__heading">Space rocket with request Animation Frame</h3>
-            </header>
-            <div class="c-article__content">
-              Create the space rocket animation with stars in different perspective.
-            </div>
-          </div>
-          <div class="c-article__img-wrapper">
-            <img class="c-article__img" src="https://assets.codepen.io/204808/17.Space-Rocket-with-requestAnimationFrame.png" alt="Responsive Mondrian art with CSS grid" />
-          </div>
-        </a>
-      </article> -->
-    </section>
+<router-outlet></router-outlet>
+ 
   </section>
-<!-- <router-outlet></router-outlet> -->

@@ -1,6 +1,6 @@
 
 export interface Images {
-  id?: string;
+  id: string;
   userName: string;
   imageSrc: string;
   title: string;

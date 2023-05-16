@@ -2,10 +2,13 @@
 .galleryLibraries{
     min-height: 100vh;
     .imageLibrarie{
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 5px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5px;
+      width: 80%;
+      margin: 10vh auto;
         @media (max-width:600px){
+          width: 100%;
             grid-template-columns: 1fr;
             gap: 6px;  transition: 0.6s;
         }

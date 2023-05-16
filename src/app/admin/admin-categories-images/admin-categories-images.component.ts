@@ -25,7 +25,8 @@ export class AdminCategoriesImagesComponent implements OnInit{
     imageSrc: '',
     title: '',
     categoryId: '',
-    userName: ''
+    userName: '',
+    id: ''
   }
 
   collectionRef = collection(database, 'categories');

@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { AppRoutingModule } from '../app-routing.module';
 import { Router, RouterModule } from '@angular/router';
+import { database } from '../app.module';
+import { collection, getDocs } from 'firebase/firestore';
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -12,22 +14,26 @@ import { Router, RouterModule } from '@angular/router';
   ],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+ // changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomeComponent implements OnInit {
   images: any[]=[];
   private cdr = inject(ChangeDetectorRef);
   private router = inject(Router);
+  categories: any[] = [];
+  collectionRef = collection(database, 'categories');
 constructor(){
  
 }
 
   ngOnInit(): void {
+  
     setTimeout(() => {
-      this.image();
-      this.cdr.detectChanges();
-    }, 400);
- 
+      this.getdata();
+      //this.cdr.detectChanges();
+    }, 1000);
+    
+
   }
  
  image(){
@@ -43,7 +49,19 @@ constructor(){
   ];
  }
 
- opengalleryType () {
-    this.router.navigate(['/gallery']);
+ getdata(){
+   this.categories = [];
+   getDocs(this.collectionRef).then((res) =>{
+     this.categories.push( res.docs.map((item) =>{
+     //  console.log(item.data());
+       return {...item.data(), id: item.id};
+     }))
+     }).catch((err) => {
+       alert(err)
+     })
+    // console.log(this.categories);
+ }
+ opengalleryType (id :string) {
+    this.router.navigate([`/gallery/${id}`]);
 }
 }
