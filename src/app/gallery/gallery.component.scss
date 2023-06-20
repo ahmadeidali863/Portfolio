@@ -128,3 +128,31 @@
       transform: rotate(90deg) scale(1.5);
       width: 100%;
     }
+
+    .imageContainerr{
+     height: 400px;width: 100%;
+      background: #00000010;
+    animation: animationloading 1.2s ease infinite ;
+    border-radius: 10px;
+    }
+    .c-article:has(.loadingTemplate)  {
+     a:hover{ transform:scale(1) !important;}
+     .c-article__link:hover{
+      &::before{
+        display: none;
+      }
+     }
+    }
+    
+    @keyframes animationloading {
+      0% {
+       background: #00000020;
+      }
+    
+      50% {
+        background: #00000000;
+      }
+      100% {
+        background: #00000020;
+      }
+    }

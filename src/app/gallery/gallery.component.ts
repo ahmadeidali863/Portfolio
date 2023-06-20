@@ -31,6 +31,7 @@ constructor(){
   ngOnInit(): void {
     let id = this.route.snapshot.params['id'];
     this.categorySelected(id);
+    
     console.log(id)
     setTimeout(() => {
       this.image();

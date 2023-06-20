@@ -3,6 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
+    path: '',   redirectTo: '/home', pathMatch: 'full'
+  },
+  {
     path: 'home',
     pathMatch: 'full',
     loadComponent: () => import('../app/home/home.component').then(m => m.HomeComponent)
@@ -26,6 +29,10 @@ const routes: Routes = [
   {
     path: 'contact',
    loadComponent: () => import('../app/home/home.component').then(m => m.HomeComponent)
+  },
+  {
+    path: 'helloWorld',
+    loadComponent: () => import('../app/core/component/hello-world/hello-world.component').then(m => m.HelloWorldComponent)
   }
 ];
 
