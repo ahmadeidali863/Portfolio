@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, HostListener, OnInit, inject } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, HostListener, OnInit, ViewChild, inject } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { ActivatedRoute } from '@angular/router';
@@ -25,15 +25,26 @@ export class GalleryComponent implements OnInit {
   currentHeight: number = 0;
   private cdr = inject(ChangeDetectorRef);
   private route = inject(ActivatedRoute);
+
+  @ViewChild('images', { static: true }) imagesRef!: ElementRef;
+  
 constructor(){
  
 }
+ngAfterViewInit() {
 
+    setTimeout(() => {
+      this.imagesRef.nativeElement.style.display = 'none';
+    }, 0);
+    setTimeout(() => {
+      this.imagesRef.nativeElement.style.display = 'grid';
+    }, 2000);
+ 
+}
   ngOnInit(): void {
     let id = this.route.snapshot.params['id'];
     this.categorySelected(id);
     
-    console.log(id)
     setTimeout(() => {
       this.image();
       this.cdr.detectChanges();
@@ -44,7 +55,6 @@ constructor(){
     this.categoryImages = [];
     getDocs(collection(database, `categories/${id}/images`)).then((res) =>{
       this.categoryImages.push( res.docs.map((item) =>{
-       console.log(item.data());
         return {...item.data(), id: item.id};
       }))
       }).catch((err) => {

@@ -1,7 +1,7 @@
 
 <section class="galleryLibraries">
     <ng-container   *ngIf="categoryImages.length;else loadingImagePlaceholder">
-    <div class="imageLibrarie" *ngFor="let item of categoryImages">
+    <div class="imageLibrarie" *ngFor="let item of categoryImages" #images>
       
     <div class="imageContainer" *ngFor="let items of item">
       

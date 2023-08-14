@@ -1,4 +1,12 @@
-
+@keyframes imagesDisplay {
+  0% {
+    margin: 20vh auto;
+    opacity: 0;}
+  100% {  
+    margin: 10vh auto;
+     opacity: 1;
+     }
+}
 .galleryLibraries{
   transition: 1s;
     min-height: 100vh;
@@ -9,6 +17,8 @@
       width: 80%;
       padding: 0 0 20px 0;
       margin: 10vh auto;
+      transition: 1s;
+      animation: imagesDisplay 1s;
         @media (max-width:600px){
           width: 100%;
             grid-template-columns: 1fr;
@@ -62,6 +72,7 @@
     //      z-index: 1;
     //      top: 0;
     // }
+   
     @keyframes openimage {
         from {opacity: 0;}
         to {   opacity: 1;;

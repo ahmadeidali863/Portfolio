@@ -5,6 +5,7 @@ import { AppRoutingModule } from '../app-routing.module';
 import { Router, RouterModule } from '@angular/router';
 import { database } from '../app.module';
 import { collection, getDocs } from 'firebase/firestore';
+import { AuthService } from '../core/services/auth.service';
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -24,6 +25,7 @@ export class HomeComponent implements OnInit {
   @ViewChild('headerBlock', { static: true }) headerBlockRef!: ElementRef;
   private cdr = inject(ChangeDetectorRef);
   private router = inject(Router);
+  private authService = inject(AuthService);
   categories: any[] = [];
   collectionRef = collection(database, 'categories');
 
@@ -38,36 +40,43 @@ scrollToSection(sectionId: string): void {
 showText1 = false;
 showText2 = false;
 ngAfterViewInit() {
-  setTimeout(() => {
-    this.showText1 = true;
-  }, 1000);
+  if(!this.authService.getFirstTime()){
 
-  setTimeout(() => {
-    this.showText1 = false;
-    this.showText2 = true;
-  }, 3000);
-
-  setTimeout(() => {
-    this.welcomeRef.nativeElement.style.backgroundColor = 'transparent';
-    
-  }, 5000);
-  setTimeout(() => {
+    setTimeout(() => {
+      this.showText1 = true;
+    }, 1000);
+  
+    setTimeout(() => {
+      this.showText1 = false;
+      this.showText2 = true;
+    }, 3000);
+  
+    setTimeout(() => {
+      this.welcomeRef.nativeElement.style.backgroundColor = 'transparent';
+      
+    }, 5000);
+    setTimeout(() => {
+      this.welcomeRef.nativeElement.style.display = 'none';
+      this.welcomeTwoRef.nativeElement.style.display = 'none';
+      this.scrollDownRef.nativeElement.style.display = 'none';
+  
+    }, 5000);
+    setTimeout(() => {
+      this.headerBlockRef.nativeElement.style.opacity = '0';
+      this.welcomeTwoRef.nativeElement.style.display = 'grid';
+      this.scrollDownRef.nativeElement.style.display = 'grid';
+  
+  
+    }, 5200);
+    setTimeout(() => {
+      this.headerBlockRef.nativeElement.style.display = 'none';
+      this.authService.changeFirstTime();
+  
+    }, 5500);
+  }else{
     this.welcomeRef.nativeElement.style.display = 'none';
-    this.welcomeTwoRef.nativeElement.style.display = 'none';
-    this.scrollDownRef.nativeElement.style.display = 'none';
-
-  }, 5000);
-  setTimeout(() => {
-    this.headerBlockRef.nativeElement.style.opacity = '0';
-    this.welcomeTwoRef.nativeElement.style.display = 'grid';
-    this.scrollDownRef.nativeElement.style.display = 'grid';
-
-
-  }, 5200);
-  setTimeout(() => {
     this.headerBlockRef.nativeElement.style.display = 'none';
-
-  }, 5500);
+  }
 }
   ngOnInit(): void {
   
