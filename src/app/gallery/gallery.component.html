@@ -1,18 +1,20 @@
 
 <section class="galleryLibraries">
-    <a  *ngIf="categoryImages.length;else loadingImagePlaceholder">
+    <ng-container   *ngIf="categoryImages.length;else loadingImagePlaceholder">
     <div class="imageLibrarie" *ngFor="let item of categoryImages">
       
     <div class="imageContainer" *ngFor="let items of item">
       
         <img 
+        [src]="items.imageSrc" data-src="{{items.imageSrc}}" alt="Image {{ items.id }}" class="img-fluid" 
+        width="300" height="300"
         loading="lazy"
-        src="{{items.imageSrc}}"
         (click)="openImage(items.imageSrc,$event)"
-        alt="Image description">
+        >
+      
     </div>
     </div>
-</a>
+    </ng-container>
     <ng-template #loadingImagePlaceholder >
         <a class="imageLibrarie">
         <div class="imageContainerr">
@@ -56,22 +58,6 @@
       <ng-container *ngIf="this.selectImage" >
         <div [ngClass]="{'imageSelected': this.selectImage}">
           <div class="imageSelectedOptions">
-            <img 
-            class="exitImage"
-            (click)="exitImage()"
-            src="../assets/images/next.png"
-          >
-       
-          <img 
-          class="exitImage rotate"
-          (click)="exitImage()"
-          src="../assets/images/minus-sign.png"
-        >
-        <img 
-        class="exitImage rotate"
-        (click)="exitImage()"
-        src="../assets/images/plus.png"
-      >
       <img 
       class="exitImage rotate"
       style="right: 50px;"
@@ -84,22 +70,22 @@
       src="../assets/images/reject.png"
     >
         </div>
-          <div class="imageSelectedContaner">
-            <img 
+          <div class="imageSelectedContaner" (click)="exitImage()">
+            <!-- <img 
             class="previous"
             (click)="exitImage()"
             src="../assets/images/next.png"
-          >
+          > -->
                 <img 
                 id="my-image"
                 loading="lazy"
                 src="{{this.selectedImage}}"
                 alt="Image description">
-                <img 
+                <!-- <img 
                 class="next"
                 (click)="exitImage()"
                 src="../assets/images/next.png"
-              >
+              > -->
             </div>
         </div>
         <div [ngClass]="{'imageSelectedExit': this.selectImage}"  (click)="exitImage()"></div>

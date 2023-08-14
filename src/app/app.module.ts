@@ -37,6 +37,7 @@ export const database = getFirestore(app);
     AppComponent
   ],
   imports: [
+   
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,

@@ -1,6 +1,39 @@
+<div class="headerBlock" #headerBlock></div>
+<div class="WelcomeMyPortfolio"  #welcome>
+  <div class="text-container">
+    <div *ngIf="showText1" class="text text1">Hello There</div>
+    <div *ngIf="showText2" class="text text2">Welcome To My Portfolio</div>
+  </div>
+</div>
 
-<section class="o-main-section" *ngIf="categories.length;else loadingImagePlaceholder">
+
+<section class="aboutmeHome" >
+  <div class="contaner" #welcomeTwo>
+    <div class="info">
+     <h1>Hi, I am Abood</h1>
+     <span>'Photographer'</span>
+     <p>
+      A photographer is an individual who specializes in capturing moments, emotions, and stories through the art of photography. Photographers use a variety of equipment, techniques, and creative skills to create visual representations of subjects, scenes, and concepts. Their work can encompass a wide range of genres, including portrait, landscape, fashion, wildlife, documentary, event, and commercial photography, among others.
+     </p>
+    </div>
+    <div class="image">
+<img src="../assets/images/8.jpg">
+    </div>
+  </div>
+ 
+</section>
+<a class="scrollDown" (click)="scrollToSection('porfolioWorks')">
+<div class="container" #scrollDown>
+  <div class="chevron"></div>
+  <div class="chevron"></div>
+  <div class="chevron"></div>
+  <!-- <span class="textt">Scroll down</span> -->
+</div>
+</a>
+<section class="o-main-section" id="porfolioWorks" >
+
     <h2 class="c-main-heading">Portfolio</h2>
+    <ng-container *ngIf="categories.length;else loadingImagePlaceholder">
 <div  class="c-main-contaner"  *ngFor="let item of this.categories">
     <article class="c-article" *ngFor="let items of item"   (click)="opengalleryType(items.id)">
       <a class="c-article__link">
@@ -18,47 +51,45 @@
       </a>
     </article>
   </div>
- 
-  </section>
-  <ng-template #loadingImagePlaceholder >
-    <div class="o-main-section">
-        <h2 class="c-main-heading">Portfolio</h2>
-    <div  class="c-main-contaner" >
-        <article class="c-article">
-          <a class="c-article__link loadingTemplate">
-          
-          </a>
-        </article>
-        <article class="c-article">
-          <a class="c-article__link loadingTemplate " >
-          
-          </a>
-        </article>
-        <article class="c-article">
-          <a class="c-article__link loadingTemplate" >
-          
-          </a>
-        </article>
-        <article class="c-article">
-          <a class="c-article__link loadingTemplate" >
-          
-          </a>
-        </article>
-        <article class="c-article">
-          <a class="c-article__link loadingTemplate" >
-          
-          </a>
-        </article>
-        <article class="c-article">
-          <a class="c-article__link loadingTemplate" >
-          
-          </a>
-        </article>
-        <article class="c-article">
-          <a class="c-article__link loadingTemplate" >
-          
-          </a>
-        </article>
-      </div>
+</ng-container>
+<ng-template #loadingImagePlaceholder >
+  <div  class="c-main-contaner" >
+      <article class="c-article">
+        <a class="c-article__link loadingTemplate">
+        
+        </a>
+      </article>
+      <article class="c-article">
+        <a class="c-article__link loadingTemplate " >
+        
+        </a>
+      </article>
+      <article class="c-article">
+        <a class="c-article__link loadingTemplate" >
+        
+        </a>
+      </article>
+      <article class="c-article">
+        <a class="c-article__link loadingTemplate" >
+        
+        </a>
+      </article>
+      <article class="c-article">
+        <a class="c-article__link loadingTemplate" >
+        
+        </a>
+      </article>
+      <article class="c-article">
+        <a class="c-article__link loadingTemplate" >
+        
+        </a>
+      </article>
+      <article class="c-article">
+        <a class="c-article__link loadingTemplate" >
+        
+        </a>
+      </article>
     </div>
-  </ng-template>
+</ng-template>
+  </section>
+  

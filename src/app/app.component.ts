@@ -18,8 +18,9 @@ export class AppComponent implements OnInit{
   public router = inject(Router);
   public translateService = inject(TranslateService);
   public authService = inject(AuthService);
-  constructor (
-  ){
+   
+  constructor ()
+  {
     this.translateService.addLangs(['ar-JO', 'en-US']);
     this.translateService.setDefaultLang(this.currLang);
   }
@@ -39,7 +40,7 @@ ngOnInit() {
   this.getdata();
  
   console.log( this.authService.getUserInfo());
-   }
+}
 
   scrolled = false;
   @HostListener('window:scroll', [])

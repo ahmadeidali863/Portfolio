@@ -1,5 +1,5 @@
 import { ChangeDetectorRef, Component, HostListener, OnInit, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { ActivatedRoute } from '@angular/router';
 import { collection, getDocs } from 'firebase/firestore';
@@ -9,7 +9,8 @@ import { database } from '../app.module';
   selector: 'app-gallery',
   standalone: true,
   imports: [CommonModule,
-            TranslateModule],
+            TranslateModule,
+          NgOptimizedImage],
   templateUrl: './gallery.component.html',
   styleUrls: ['./gallery.component.scss']
 })

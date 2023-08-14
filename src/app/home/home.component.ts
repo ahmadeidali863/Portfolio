@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, HostListener, OnInit, inject } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, HostListener, OnInit, ViewChild, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { AppRoutingModule } from '../app-routing.module';
@@ -18,14 +18,57 @@ import { collection, getDocs } from 'firebase/firestore';
 })
 export class HomeComponent implements OnInit {
   images: any[]=[];
+  @ViewChild('welcome', { static: true }) welcomeRef!: ElementRef;
+  @ViewChild('welcomeTwo', { static: true }) welcomeTwoRef!: ElementRef;
+  @ViewChild('scrollDown', { static: true }) scrollDownRef!: ElementRef;
+  @ViewChild('headerBlock', { static: true }) headerBlockRef!: ElementRef;
   private cdr = inject(ChangeDetectorRef);
   private router = inject(Router);
   categories: any[] = [];
   collectionRef = collection(database, 'categories');
-constructor(){
- 
-}
 
+constructor(private elementRef: ElementRef) {}
+
+scrollToSection(sectionId: string): void {
+  const section = this.elementRef.nativeElement.querySelector(`#${sectionId}`);
+  if (section) {
+    section.scrollIntoView({ behavior: 'smooth' });
+  }
+}
+showText1 = false;
+showText2 = false;
+ngAfterViewInit() {
+  setTimeout(() => {
+    this.showText1 = true;
+  }, 1000);
+
+  setTimeout(() => {
+    this.showText1 = false;
+    this.showText2 = true;
+  }, 3000);
+
+  setTimeout(() => {
+    this.welcomeRef.nativeElement.style.backgroundColor = 'transparent';
+    
+  }, 5000);
+  setTimeout(() => {
+    this.welcomeRef.nativeElement.style.display = 'none';
+    this.welcomeTwoRef.nativeElement.style.display = 'none';
+    this.scrollDownRef.nativeElement.style.display = 'none';
+
+  }, 5000);
+  setTimeout(() => {
+    this.headerBlockRef.nativeElement.style.opacity = '0';
+    this.welcomeTwoRef.nativeElement.style.display = 'grid';
+    this.scrollDownRef.nativeElement.style.display = 'grid';
+
+
+  }, 5200);
+  setTimeout(() => {
+    this.headerBlockRef.nativeElement.style.display = 'none';
+
+  }, 5500);
+}
   ngOnInit(): void {
   
     setTimeout(() => {

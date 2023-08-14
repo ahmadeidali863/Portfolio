@@ -1,14 +1,14 @@
-.themeBlack::before{
-  content: "";
-  position: absolute;
-  left: -148%;
-  top: 0;
-  width: 300%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.3);
-  transform: rotate(45deg);
-  z-index: -1;
-}
+// .themeBlack::before{
+//   content: "";
+//   position: absolute;
+//   left: -148%;
+//   top: 0;
+//   width: 300%;
+//   height: 100%;
+//   background-color: rgba(0, 0, 0, 0.3);
+//   transform: rotate(45deg);
+//   z-index: -1;
+// }
 
 
 .active
@@ -92,15 +92,21 @@ height: 50vh;
   
 //theme
 //theme Black
-.themeBlack {
+// .themeBlack {
  
-}
+// }
 //theme light
 .themeLight {
   --italic-font: "EB Garamond", serif;
 }
 //end theme
-
+@keyframes header { 
+  0%{ opacity: 0;
+      }
+  100%{ 
+      opacity: 1;
+  }
+  }
 .header{
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
@@ -114,7 +120,7 @@ height: 50vh;
   left: 0;
   z-index: 6;
   height: 100px;
-
+  animation: header 2s;
   @media (max-width: 575px) {
     padding: 0 2%;
     grid-template-columns: 2fr 1fr;
