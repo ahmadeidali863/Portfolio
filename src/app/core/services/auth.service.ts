@@ -10,10 +10,17 @@ export class AuthService {
   userRole: string = "";
   userId: number = 0;
   user: User = new User();
+firstTime: boolean = false;
 
   constructor(private cookieService: CookieService) {
 
   }
+changeFirstTime(){
+  this.firstTime = true;
+}
+getFirstTime(){
+  return this.firstTime;
+}
 
   public getAuthorizationToken() {
     return localStorage.getItem('token');

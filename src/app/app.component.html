@@ -2,12 +2,13 @@
 
     <section class="scrollable header" [class.scrolled]="scrolled">
     
-      <div class="logo">
+      <div class="logo" [routerLink]="['/']" style="cursor: pointer;">
       <h2>Abood Albyaari.</h2>
     </div>
     <ul class="mobile">
-      <li><a routerLinkActive="active" class="active " [routerLink]="['/home']">{{ 'Home.Work' | translate }}</a></li>
-      <li><a routerLinkActive="active" [routerLink]="['/aboutme']">{{ 'Home.AboutMe' | translate }}</a></li>
+      <!--{{ 'Home.portfolio' | translate }}-->
+      <li><a routerLinkActive="active"  class="active" [routerLink]="['/home']">Portfolio</a></li>
+      <!-- <li><a routerLinkActive="active"  [routerLink]="['/home']">{{ 'Home.Work' | translate }}</a></li> -->
       <li><a routerLinkActive="active" [routerLink]="['/contact']">{{ 'Home.Contact' | translate }}</a></li>
     </ul>
       <div class="header-icons">

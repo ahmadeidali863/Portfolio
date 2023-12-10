@@ -11,7 +11,7 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore/';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage'; 
 import { AngularFireModule } from '@angular/fire/compat';
 import { initializeApp } from 'firebase/app';
-
+import { getAnalytics } from "firebase/analytics";
 import { getFirestore } from 'firebase/firestore';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http,
@@ -31,12 +31,14 @@ const firebaseConfig = {
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
 export const database = getFirestore(app);
+const analytics = getAnalytics(app);
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
+   
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,

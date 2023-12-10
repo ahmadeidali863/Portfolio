@@ -23,5 +23,10 @@
         "Profile":"Profile",
         "CategoryImages":"Category Images",
         "Security":"Security"
+    },
+    "Validations":{
+        "EmailExample":"Email required",
+        "EmailLengthRequired":"Email Length Is Short",
+        "Passwordisrequired":"Password required"
     }
 }

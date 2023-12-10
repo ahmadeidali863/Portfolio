@@ -23,5 +23,10 @@
         "Profile":"حساب الشخصي",
         "CategoryImages":"فئة الصور",
         "Security":"الحماية"
+    },
+    "Validations":{
+        "EmailExample":"الفئات",
+        "EmailLengthRequired":"حساب الشخصي",
+        "Passwordisrequired":"فئة الصور"
     }
 }
