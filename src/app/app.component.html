@@ -1,22 +1,30 @@
-<div id="{{'currentLang' | translate}}" class="themeBlack">
+<div id="{{'currentLang' | translate}}" class="theme" [ngClass]="{'darkMode': color , 'whiteMode' : !color}">
 
     <section class="scrollable header" [class.scrolled]="scrolled">
     
-      <div class="logo" [routerLink]="['/']" style="cursor: pointer;">
-      <h2>Abood Albyaari.</h2>
-    </div>
+    
     <ul class="mobile">
-      <!--{{ 'Home.portfolio' | translate }}-->
-      <li><a routerLinkActive="active"  class="active" [routerLink]="['/home']">Portfolio</a></li>
-      <!-- <li><a routerLinkActive="active"  [routerLink]="['/home']">{{ 'Home.Work' | translate }}</a></li> -->
+      <li></li>
+      <li><a routerLinkActive="active"  class="active" [routerLink]="['/homepage']">{{ 'Home.Portfolio' | translate }}</a></li>
       <li><a routerLinkActive="active" [routerLink]="['/contact']">{{ 'Home.Contact' | translate }}</a></li>
     </ul>
+    <div class="logo" [routerLink]="['/']" style="cursor: pointer;">
+      <img *ngIf="!color" src="../assets/images/4.png">
+      <img *ngIf="color" src="../assets/images/6.png">
+    </div>
       <div class="header-icons">
         <ul class="mobile">
-          <li><a class="language" *ngIf="language === 'ar-JO'" (click)="selectLanguage('en-US')">{{ 'Language.English' | translate }}</a></li>
-          <li><a class="language" *ngIf="language === 'en-US'" (click)="selectLanguage('ar-JO')"> {{ 'Language.Arabic' | translate }}</a></li>
+          <li *ngIf="language === 'ar-JO'" ><a class="language" (click)="selectLanguage('en-US')">{{ 'Language.English' | translate }}</a></li>
+          <li *ngIf="language === 'en-US'"><a class="language"  (click)="selectLanguage('ar-JO')"> {{ 'Language.Arabic' | translate }}</a></li>
           <li><a class="login"  [routerLink]="['/login']" > {{ 'Home.LogIn' | translate }}</a></li>
+         <li> <div class="darkmode">
+          <i class="fa-regular fa-sun mode" *ngIf="color" style="color: #fff;" (click)="color = !color"></i>
+          <i class="fa-regular fa-moon mode" style="color: #000;" *ngIf="!color" (click)="color = !color"></i>
+        </div></li>
         </ul>
+            <!-- <button class="meta" id="color-toggle" (click)="color = !color"></button></li> -->
+
+           
       <div class="menu-icon">
         <svg fill="none" (click)="openMobileMenu()" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />

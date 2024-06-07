@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: '',   redirectTo: '/home', pathMatch: 'full'
+    path: '',   redirectTo: '/homepage', pathMatch: 'full'
   },
   {
     path: 'home',
@@ -33,6 +33,11 @@ const routes: Routes = [
   {
     path: 'helloWorld',
     loadComponent: () => import('../app/core/component/hello-world/hello-world.component').then(m => m.HelloWorldComponent)
+  },
+  {
+    path: 'homepage',
+    title: 'Home Page',
+    loadComponent: () => import('../app/homepage/homepage.component').then(m => m.HomepageComponent)
   }
 ];
 

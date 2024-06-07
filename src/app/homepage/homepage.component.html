@@ -1,0 +1,113 @@
+<div class="headerBlock" #headerBlock></div>
+<div class="WelcomeMyPortfolio "  [ngClass]="{'openImages': showText3 }" #welcome>
+  <div class="text-container"  [ngClass]="{'back1': showText1 , 'back2' : showText2}">
+    
+    <div *ngIf="showText1" class="text text1">Hello There</div>
+    <div *ngIf="showText2" class="text text2">Welcome To My Portfolio</div>
+   
+<div *ngIf="showText3">
+  <div  class="imagesContaner"  *ngFor="let item of this.categories">
+    <div class="imageBox" *ngFor="let items of item"   (click)="opengalleryType(items.id)">
+      <img class="image" src="{{items.previewImage}}" alt="Ink transition with PNG sprite" />
+    </div>
+  </div>
+</div>
+
+ 
+  </div>
+</div>
+
+<section class="rightSection" *ngIf="showText3 && categories.length" >
+      <div  class="boxsContaner"  *ngFor="let item of this.categories">
+          <div class="box" *ngFor="let items of item"   (click)="opengalleryType(items.id)">
+             <h3 class="boxTitle">{{items.title}}</h3>
+          </div>
+        </div>
+ 
+</section>
+<!-- 
+<section class="aboutmeHome" >
+  <div class="contaner" #welcomeTwo>
+    <div class="info">
+     <h1>Hi, I am Abood</h1>
+     <span>'Photographer'</span>
+     <p>
+      A photographer is an individual who specializes in capturing moments, emotions, and stories through the art of photography. Photographers use a variety of equipment, techniques, and creative skills to create visual representations of subjects, scenes, and concepts. Their work can encompass a wide range of genres, including portrait, landscape, fashion, wildlife, documentary, event, and commercial photography, among others.
+     </p>
+    </div>
+    <div class="image">
+<img src="../assets/images/8.jpg">
+    </div>
+  </div>
+ 
+</section> -->
+<!-- <a class="scrollDown" (click)="scrollToSection('porfolioWorks')">
+<div class="container" #scrollDown>
+  <div class="chevron"></div>
+  <div class="chevron"></div>
+  <div class="chevron"></div>
+</div>
+</a>
+<section class="o-main-section" id="porfolioWorks" >
+
+    <h2 class="c-main-heading">Portfolio</h2>
+    <ng-container *ngIf="categories.length;else loadingImagePlaceholder">
+<div  class="c-main-contaner"  *ngFor="let item of this.categories">
+    <article class="c-article" *ngFor="let items of item"   (click)="opengalleryType(items.id)">
+      <a class="c-article__link">
+        <div>
+          <header>
+            <h3 class="c-article__heading">{{items.title}}</h3>
+          </header>
+          <div class="c-article__content">
+            {{items.description}}
+          </div>
+        </div>
+        <div class="c-article__img-wrapper">
+          <img class="c-article__img" src="{{items.previewImage}}" alt="Ink transition with PNG sprite" />
+        </div>
+      </a>
+    </article>
+  </div>
+</ng-container> -->
+<!-- <ng-template #loadingImagePlaceholder >
+  <div  class="c-main-contaner" >
+      <article class="c-article">
+        <a class="c-article__link loadingTemplate">
+        
+        </a>
+      </article>
+      <article class="c-article">
+        <a class="c-article__link loadingTemplate " >
+        
+        </a>
+      </article>
+      <article class="c-article">
+        <a class="c-article__link loadingTemplate" >
+        
+        </a>
+      </article>
+      <article class="c-article">
+        <a class="c-article__link loadingTemplate" >
+        
+        </a>
+      </article>
+      <article class="c-article">
+        <a class="c-article__link loadingTemplate" >
+        
+        </a>
+      </article>
+      <article class="c-article">
+        <a class="c-article__link loadingTemplate" >
+        
+        </a>
+      </article>
+      <article class="c-article">
+        <a class="c-article__link loadingTemplate" >
+        
+        </a>
+      </article>
+    </div>
+</ng-template>
+  </section>
+   -->

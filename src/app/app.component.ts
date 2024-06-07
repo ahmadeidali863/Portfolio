@@ -13,6 +13,7 @@ import { database } from './app.module';
 export class AppComponent implements OnInit{
   currLang : string = 'en-US';
   userinfo : any ;
+  color : boolean = false ;
   language :string = 'en-US';
   categories: any[] = [];
   public router = inject(Router);
